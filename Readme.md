@@ -1,7 +1,7 @@
 # Личный проект «YetiCave»
 
 * Студент: [Рита Ярёменко](https://up.htmlacademy.ru/php/8/user/173700).
-* Наставник: `Неизвестно`.
+* Наставник: [Денис Байдаров](https://htmlacademy.ru/profile/4er).
 
 ---
 
