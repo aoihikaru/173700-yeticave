@@ -7,40 +7,58 @@ $auction = [
     [
         'name' => '2014 Rossignol District Snowboard',
         'category' => 'Доски и лыжи',
-        'price' => '10999',
+        'price' => 10999,
         'pic_url' => 'img/lot-1.jpg'
     ],
     [
         'name' => 'DC Ply Mens 2016/2017 Snowboard',
         'category' => 'Доски и лыжи',
-        'price' => '159999',
+        'price' => 159999,
         'pic_url' => 'img/lot-2.jpg'
     ],
     [
         'name' => 'Крепления Union Contact Pro 2015 года размер L/XL',
         'category' => 'Крепления',
-        'price' => '8000',
+        'price' => 8000,
         'pic_url' => 'img/lot-3.jpg'
     ],
     [
         'name' => 'Ботинки для сноуборда DC Mutiny Charocal',
         'category' => 'Ботинки',
-        'price' => '10999',
+        'price' => 10999,
         'pic_url' => 'img/lot-4.jpg'
     ],
     [
         'name' => 'Куртка для сноуборда DC Mutiny Charocal',
         'category' => 'Одежда',
-        'price' => '7500',
+        'price' => 7500,
         'pic_url' => 'img/lot-5.jpg'
     ],
     [
         'name' => 'Маска Oakley Canopy',
         'category' => 'Разное',
-        'price' => '5400',
+        'price' => 5400,
         'pic_url' => 'img/lot-6.jpg'
     ]
 ];
+
+function price_change($price_start) {
+
+    $integer_price = ceil($price_start);
+
+    if ($integer_price < 1000) {
+
+    } else {
+        $integer_price = number_format($integer_price, 0, ',', ' ');
+    }
+
+    $integer_price .= ' '.'<b class="rub">P</b>';
+
+    return($integer_price);
+};
+
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
 
 ?>
 <!DOCTYPE html>
@@ -114,7 +132,7 @@ $auction = [
         </div>
         <ul class="lots__list">
 
-            <?php foreach ($auction as $lot) :?>
+            <?php foreach ($auction as $lot): ?>
 
             <!--заполните этот список из массива с товарами-->
             <li class="lots__item lot">
@@ -127,7 +145,9 @@ $auction = [
                     <div class="lot__state">
                         <div class="lot__rate">
                             <span class="lot__amount">Стартовая цена</span>
-                            <span class="lot__cost"><?=$lot['price'] ?><b class="rub">р</b></span>
+                            <span class="lot__cost">
+                                <?=(price_change($lot['price']));?>
+                            </span>
                         </div>
                         <div class="lot__timer timer">
                             12:23
