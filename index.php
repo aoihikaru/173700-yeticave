@@ -44,17 +44,11 @@ $auction = [
 
 function price_change($price_start) {
 
-    $integer_price = ceil($price_start);
+    $integer_price = number_format($price_start, 0, ',', ' ');
 
-    if ($integer_price < 1000) {
+    $integer_price .= ' <b class="rub">P</b>';
 
-    } else {
-        $integer_price = number_format($integer_price, 0, ',', ' ');
-    }
-
-    $integer_price .= ' '.'<b class="rub">P</b>';
-
-    return($integer_price);
+    return $integer_price;
 };
 
 error_reporting(E_ALL);
