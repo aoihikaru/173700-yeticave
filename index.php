@@ -9,18 +9,6 @@ $user_name = 'Рита'; // укажите здесь ваше имя
 require_once('functions.php');
 require_once('data.php');
 
-function price_change($price_start) {
-  $price_start = ceil($price_start);
-  $integer_price = number_format($price_start, 0, ',', ' ');
-  $integer_price .= ' <b class="rub">P</b>';
-  return $integer_price;
-};
-
-function check_text($text) {
-	$total_text = htmlspecialchars($text);
-	return $total_text;
-}
-
 $page_content = include_template('index.php',['auction' => $auction]);
 $layout_content = include_template('layout.php', [
 	'content' => $page_content,
