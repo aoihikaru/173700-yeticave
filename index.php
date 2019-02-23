@@ -5,11 +5,15 @@ ini_set('display_errors', 1);
 
 $is_auth = rand(0, 1);
 $user_name = 'Рита'; // укажите здесь ваше имя
+$finish_time = "tomorrow";
 
 require_once('functions.php');
 require_once('data.php');
 
-$page_content = include_template('index.php',['auction' => $auction]);
+$page_content = include_template('index.php',[
+	'auction' => $auction,
+	'finish_time' => $finish_time
+]);
 $layout_content = include_template('layout.php', [
 	'content' => $page_content,
 	'categories' => $categories,
