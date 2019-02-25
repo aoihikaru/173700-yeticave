@@ -16,12 +16,12 @@ CREATE TABLE lots (
   end_date DATETIME,
   bet_step INT NOT NULL,
   user_id INT NOT NULL,
-  winner_id INT NOT NULL,
+  winner_id INT,
   category_id INT NOT NULL
 );
 CREATE TABLE bets (
   id INT AUTO_INCREMENT PRIMARY KEY,
-  create_date DATETIME NOT NULL,
+  create_date DATETIME NOT NULL DEFAULT NOW(),
   lot_price INT NOT NULL,
   user_id INT NOT NULL,
   lot_id INT NOT NULL
@@ -30,10 +30,8 @@ CREATE TABLE users (
   id INT AUTO_INCREMENT PRIMARY KEY,
   registration_date DATETIME NOT NULL DEFAULT NOW(),
   email VARCHAR(64) NOT NULL UNIQUE,
-  user_name VARCHAR(64) NOT NULL UNIQUE,
-  user_password VARCHAR(128) NOT NULL,
-  user_pic VARCHAR(64) NOT NULL,
-  contact TEXT NOT NULL,
-  lot_id INT NOT NULL,
-  bet_id INT NOT NULL
+  name VARCHAR(64) NOT NULL,
+  password VARCHAR(128) NOT NULL,
+  pic VARCHAR(64) NOT NULL,
+  contact TEXT NOT NULL
 );
